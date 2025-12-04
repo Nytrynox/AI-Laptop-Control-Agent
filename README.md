@@ -26,12 +26,12 @@ AgentOS follows a modular multi-agent architecture:
 
 ```mermaid
 graph TD
-    User[User Goal] --> Host[HostAgent (Orchestrator)]
+    User["User Goal"] --> Host["HostAgent (Orchestrator)"]
     
     subgraph Perception Layer
-        Screen[Screenshot] --> VLM[LlaVA / Vision Model]
-        Screen --> OCR[Tesseract OCR]
-        Screen --> UIA[Native Accessibility API]
+        Screen["Screenshot"] --> VLM["LlaVA / Vision Model"]
+        Screen --> OCR["Tesseract OCR"]
+        Screen --> UIA["Native Accessibility API"]
     end
     
     Host -->|Query| Perception Layer
@@ -40,14 +40,14 @@ graph TD
     Host -->|Delegate| AppAgents
     
     subgraph AppAgents
-        Browser[Browser Agent]
-        Files[File Explorer Agent]
-        Term[Terminal Agent]
-        Office[Office/Email Agent]
+        Browser["Browser Agent"]
+        Files["File Explorer Agent"]
+        Term["Terminal Agent"]
+        Office["Office/Email Agent"]
     end
     
-    AppAgents -->|Actions| Actuator[Action Grounder]
-    Actuator -->|Input| OS[Operating System]
+    AppAgents -->|Actions| Actuator["Action Grounder"]
+    Actuator -->|Input| OS["Operating System"]
     
     OS -->|Feedback| Screen
 ```
